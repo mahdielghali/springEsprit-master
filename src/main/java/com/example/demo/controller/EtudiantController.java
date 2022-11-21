@@ -68,4 +68,9 @@ public class EtudiantController {
     public Etudiant findEtudiantByNomEAndPrenomE(@PathVariable("nom") String nomE,@PathVariable("prenom") String prenomE){
         return etudiantService.findEtudiantByNomEAndPrenomE(nomE,prenomE);
     }
+
+    @GetMapping("/getEtudiantsByDepartement/{idDepartement}")
+    public List<Etudiant> getEtudiantsByDepartement(@PathVariable("idDepartement") long idDepartement){
+        return etudiantService.getEtudiantsByDepartement(idDepartement);
+    }
 }

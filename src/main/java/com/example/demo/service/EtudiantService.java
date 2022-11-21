@@ -25,4 +25,6 @@ public interface EtudiantService {
     Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, long idEquipe);
 
     Etudiant findEtudiantByNomEAndPrenomE(String nomE,String prenomE);
+
+    List<Etudiant> getEtudiantsByDepartement (long idDepartement);
 }

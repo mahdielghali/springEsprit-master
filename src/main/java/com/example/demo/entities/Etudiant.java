@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
@@ -26,6 +27,7 @@ public class Etudiant implements Serializable {
     private Option opt;
 
     @OneToMany(mappedBy = "etudiant")
+    @JsonIgnore
     private List<Contrat> contrat;
 
     @ManyToOne

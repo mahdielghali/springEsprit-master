@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -56,6 +57,10 @@ public class ContratServiceImp implements ContratService{
         return contrat;
     }
 
+    @Override
+    public List<Contrat> getContratBetweenDates(Date startDate, Date endDate) {
+        return contratRepository.getContratBetweenDates(startDate,endDate);
+    }
 
 
 }

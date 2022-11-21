@@ -3,8 +3,10 @@ package com.example.demo.controller;
 import com.example.demo.entities.Contrat;
 import com.example.demo.service.ContratService;
 import lombok.AllArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -42,4 +44,11 @@ public class ContratController {
     public Contrat affectContratToEtudiant (@RequestBody Contrat ce,@PathVariable("nom") String nomE,@PathVariable("prenom") String prenomE){
         return contratService.affectContratToEtudiant(ce,nomE,prenomE);
     }
+
+    @GetMapping("/getContratBetweenDates/{startDate}/{endDate}")
+    public List<Contrat> getContratBetweenDates(@PathVariable("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,@PathVariable("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate){
+        return contratService.getContratBetweenDates(startDate,endDate);
+    }
+
+
 }

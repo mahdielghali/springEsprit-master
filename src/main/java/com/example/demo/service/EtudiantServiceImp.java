@@ -95,4 +95,12 @@ public class EtudiantServiceImp implements EtudiantService{
         return etudiantRepository.findEtudiantByNomEAndPrenomE(nomE,prenomE);
     }
 
+    @Override
+    public List<Etudiant> getEtudiantsByDepartement(long idDepartement) {
+        Departement departement = departementRepository.findById(idDepartement).orElse(null);
+        List<Etudiant> etudiants = departement.getEtudiant();
+        return etudiants;
+
+    }
+
 }

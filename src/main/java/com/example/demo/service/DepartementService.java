@@ -18,4 +18,6 @@ public interface DepartementService {
     Departement getDepartementById(Long id);
 
     List<Departement> retrieveDepartementByOptionEtudiant(Option op);
+
+    List<Departement> retrieveDepartementsByUniversite(long idUniversite);
 }
