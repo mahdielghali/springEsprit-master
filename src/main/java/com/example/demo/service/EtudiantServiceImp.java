@@ -8,6 +8,7 @@ import com.example.demo.repository.EtudiantRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -76,18 +77,10 @@ public class EtudiantServiceImp implements EtudiantService{
     @Override
     @Transactional
     public Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, long idEquipe) {
-       /* this.addEtudiant(e);
-        List<Etudiant> et = new ArrayList<>();
-        et.add(e);
-       */ Contrat contrat = contratRepository.findById(idContrat).orElse(null);
+        Contrat contrat = contratRepository.findById(idContrat).orElse(null);
         Equipe equipe = equipeRepository.findById(idEquipe).orElse(null);
         contrat.setEtudiant(e);
-        equipe.getEtudiant().add(e);
-        /*contrat.setEtudiant(e);
-        contratRepository.save(contrat);
-        equipe.setEtudiant(et);
-        equipeRepository.save(equipe);*/
-        return etudiantRepository.save(e);
+        equipe.getEtudiant().add(e); return etudiantRepository.save(e);
     }
 
     @Override

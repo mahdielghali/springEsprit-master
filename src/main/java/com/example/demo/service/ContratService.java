@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entities.Contrat;
+import org.springframework.data.repository.query.Param;
 
 import java.util.Date;
 import java.util.List;
@@ -20,4 +21,8 @@ public interface ContratService {
     Contrat affectContratToEtudiant (Contrat ce, String nomE,String prenomE);
 
     List<Contrat> getContratBetweenDates(Date startDate, Date endDate);
+
+    Integer findNbContratByDatesAndArchives(@Param("dateDebut") Date dateDebut, @Param("dateFin") Date dateFin);
+
+    String retrieveAndUpdateStatusContrat();
 }

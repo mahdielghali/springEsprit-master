@@ -50,5 +50,10 @@ public class ContratController {
         return contratService.getContratBetweenDates(startDate,endDate);
     }
 
+    @GetMapping("/findNbContratByDatesAndArchives/{startDate}/{endDate}")
+    public Integer findNbContratByDatesAndArchives(@PathVariable("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateDebut,@PathVariable("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd")  Date dateFin){
+        return contratService.findNbContratByDatesAndArchives(dateDebut,dateFin);
+    }
+
 
 }
